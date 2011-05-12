@@ -18,7 +18,7 @@ Jeweler::Tasks.new do |gem|
   gem.homepage = "http://github.com/simondean/robocopy"
   gem.license = "MIT"
   gem.summary = %Q{Wrapper for the Robocopy directory copying command line tool for Windows.  Think rsync for Windows.}
-  gem.description = %Q{TODO: longer description of your gem}
+  gem.description = %Q{Wrapper for the Robocopy directory copying command line tool for Windows.  Think rsync for Windows.}
   gem.email = "simon@simondean.org"
   gem.authors = ["Simon Dean"]
   # dependencies defined in Gemfile
