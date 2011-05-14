@@ -1,20 +1,19 @@
 class Robocopy
-  def self.mirror source, destination
-    options = Options.new
-    yield options
-
+  def self.mirror source, destination, options = {}
     command = "robocopy \"#{source}\" \"#{destination}\" /MIR"
-    command += options.to_s
+    command += get_options_string(options)
     sh command
   end
 
-  class Options
-    attr_accessor :exclude_files
-
-    def to_s
-      str = ""
-      str += " /XF \"#{@exclude_files}\"" if @exclude_files
-      str
+  private
+  def unknown_options? options
+    options.each_key do |key|
     end
+  end
+
+  def self.get_options_string options
+    str = ""
+    str += " /XF \"#{options[:exclude_files]}\"" if options[:exclude_files]
+    str
   end
 end

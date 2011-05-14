@@ -4,15 +4,12 @@ describe "Robocopy", "#mirror" do
   it "should mirror a directory" do
     Robocopy.stub! :sh
     Robocopy.should_receive(:sh).with 'robocopy "test-source" "test-destination" /MIR'
-    Robocopy.mirror "test-source", "test-destination" do |opt|
-    end
+    Robocopy.mirror "test-source", "test-destination"
   end
 
-  it "should accept configuration options" do
+  it "should exclude files" do
     Robocopy.stub! :sh
     Robocopy.should_receive(:sh).with 'robocopy "test-source" "test-destination" /MIR /XF "test-file"'
-    Robocopy.mirror "test-source", "test-destination" do |opt|
-      opt.exclude_files = 'test-file'
-    end
+    Robocopy.mirror "test-source", "test-destination", :exclude_files => 'test-file'
   end
 end
